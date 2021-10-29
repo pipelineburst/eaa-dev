@@ -1,0 +1,11 @@
+apiVersion: v2
+name: dimtoolui
+description: Deploys the Dim Tool UI for EKS
+type: application
+version: 0.0.1
+appVersion: "1.0.1"
+
+dependencies:
+- name: dimtool
+  version: 0.0.1
+  repository: "file://../../dimtool/helm"

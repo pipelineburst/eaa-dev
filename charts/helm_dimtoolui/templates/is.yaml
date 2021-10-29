@@ -1,0 +1,13 @@
+{{ if .Values.internal_registry }}
+apiVersion: v1
+kind: ImageStream
+metadata:
+  name: dimtoolui
+spec:
+  dockerImageRepository: "{{ .Values.mycomosi_registry_url }}/{{ .Values.docker_registry_project }}/dimtoolui"
+  tags:
+  - from:
+      kind: DockerImage
+      name: "{{ .Values.mycomosi_registry_url }}/{{ .Values.docker_registry_project }}/dimtoolui:{{ .Values.dimtoolui_version }}"
+    name: {{ .Values.dimtoolui_version }}
+{{ end }}
